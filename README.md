@@ -3,5 +3,5 @@ Repositório referente a prototipação da startup (fictícia) "4GInnovation", a
 
 <h1>Sumário</h1>
 
-- [1. Informações Gerais](https://github.com/giovannasantt/4GInnovation/wiki)
+- [1. Informações Gerais]
 https://github.com/giovannasantt/fangamefnaf2025.wiki.git
