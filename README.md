@@ -6,3 +6,5 @@ Repositório referente a prototipação da startup (fictícia) "4GInnovation", a
 - [Home](https://github.com/giovannasantt/4GInnovation/wiki)
 
 -[home](https://github.com/alinefbrito/gdd-template.wiki.git)
+
+https://github.com/alinefbrito/gdd-template.git
