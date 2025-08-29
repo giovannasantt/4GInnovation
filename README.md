@@ -5,4 +5,4 @@ Repositório referente a prototipação da startup (fictícia) "4GInnovation", a
 
 - [1. Informações Gerais](https://github.com/giovannasantt/4GInnovation/wiki/1.-Informa%C3%A7%C3%B5es-Gerais)
 - [2. Mecânicas de Jogo](https://github.com/giovannasantt/4GInnovation/wiki/2.-Mec%C3%A2nicas-de-Jogo)
-- [Narrativa](https://github.com/giovannasantt/4GInnovation/wiki/3.-Narrativa)
+- [3. Narrativa](https://github.com/giovannasantt/4GInnovation/wiki/3.-Narrativa)
