@@ -7,3 +7,4 @@ Repositório referente a prototipação da startup (fictícia) "4GInnovation", a
 - [2. Mecânicas de Jogo](https://github.com/giovannasantt/4GInnovation/wiki/2.-Mec%C3%A2nicas-de-Jogo)
 - [3. Narrativa](https://github.com/giovannasantt/4GInnovation/wiki/3.-Narrativa)
 - [4. Design de Níveis](https://github.com/giovannasantt/4GInnovation/wiki/4.-Design-de-N%C3%ADveis)
+- [5. Arte e Estilo Visual](https://github.com/giovannasantt/4GInnovation/wiki/5.-Arte-e-Estilo-Visual)
