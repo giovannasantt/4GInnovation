@@ -10,3 +10,4 @@ Repositório referente a prototipação da startup (fictícia) "4GInnovation", a
 - [5. Arte e Estilo Visual](https://github.com/giovannasantt/4GInnovation/wiki/5.-Arte-e-Estilo-Visual)
 - [6. Áudio](https://github.com/giovannasantt/4GInnovation/wiki/6.-%C3%81udio)
 - [7. Progresso e Salvamento](https://github.com/giovannasantt/4GInnovation/wiki/7.-Progresso-e-Salvamento)
+- [8. Monetização](https://github.com/giovannasantt/4GInnovation/wiki/8.-Monetiza%C3%A7%C3%A3o)
