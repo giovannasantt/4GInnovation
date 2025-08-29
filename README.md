@@ -8,3 +8,4 @@ Repositório referente a prototipação da startup (fictícia) "4GInnovation", a
 - [3. Narrativa](https://github.com/giovannasantt/4GInnovation/wiki/3.-Narrativa)
 - [4. Design de Níveis](https://github.com/giovannasantt/4GInnovation/wiki/4.-Design-de-N%C3%ADveis)
 - [5. Arte e Estilo Visual](https://github.com/giovannasantt/4GInnovation/wiki/5.-Arte-e-Estilo-Visual)
+- [6. Áudio](https://github.com/giovannasantt/4GInnovation/wiki/6.-%C3%81udio)
