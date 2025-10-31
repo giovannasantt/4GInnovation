@@ -1,5 +1,5 @@
 # 4GInnovation
-Repositório referente a prototipação da startup (fictícia) "4GInnovation", aqui será colocado tudo o que for criado/atualizado da empresa.
+Repositório referente a prototipação da startup (fictícia) "4GInnovation", aqui será colocado tudo o que for criado/atualizado da empresa. Este GDD detalha um jogo de mistério e aventura com uma narrativa envolvente sobre uma detetive que deve resolver o mistério dos animais desparecidos de sua cidade. O jogo apresenta mecânicas de investigação e solução de puzzles, e uma rica trilha sonora. A arte em e os efeitos sonoros imersivos contribuem para uma experiência de jogo memorável.
 
 <h1>Sumário</h1>
 
