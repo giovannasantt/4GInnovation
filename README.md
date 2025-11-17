@@ -1,5 +1,6 @@
 # 4GInnovation
-Repositório referente a prototipação da startup (fictícia) "4GInnovation", aqui será colocado tudo o que for criado/atualizado da empresa.
+Este repositório é referente a criação do jogo Snout Case da startup (fictícia) "4GInnovation" formada por Bruno Bruno Santos Ichikawa, Gabriel Lima Villarinho, Giovanna Cristina de Santana, Guilherme Santos Pereira, Igor Michelini Pereira e
+Kevin Novais Bezerra, aqui será colocado tudo o que for criado/atualizado da empresa.
 <h1>Sumário</h1>
 
 - [Informações Gerais](https://github.com/giovannasantt/4GInnovation/wiki/1.-Informa%C3%A7%C3%B5es-Gerais)
