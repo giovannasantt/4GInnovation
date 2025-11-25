@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f7f4cb021554974dafd7d1276984df6, type: 3}
+  m_Name: MindsetTest
+  m_EditorClassIdentifier: 
+  mindsetName:
+  - language: 0
+    text: Cachorros desaparecidos
+  - language: 1
+    text: Brabo
+  mindsetDescription:
+  - language: 0
+    text: Diversos animais tem desaparecido
+  - language: 1
+    text: 
+  ObjectToLink: {fileID: 11400000, guid: 12437e3738446584a937db8010868b49, type: 2}
+  ObjectFormedUponConnection: {fileID: 11400000, guid: 2fd3c7056fecfdd4c8563600abb6d300, type: 2}
