@@ -11,6 +11,17 @@ public class PlayerMovement : MonoBehaviour
 
     private Dictionary<MovementType, float> movementSpeedCollection;
     
+    private Dictionary<MovementType, string> movementAnimations = new()
+    {
+        {MovementType.Normal, "Walk"},
+        {MovementType.Crouched, "WalkCrouched"}
+    };
+    private Dictionary<MovementType, string> idleAnimations = new()
+    {
+        {MovementType.Normal, "Idle"},
+        {MovementType.Crouched, "IdleCrouched"}
+    };
+    
     private Rigidbody rb;
     private Player player => Player.instance;
     private Vector2 moveAxis;
@@ -59,6 +70,14 @@ public class PlayerMovement : MonoBehaviour
             direction.z * currentSpeedType
         );
         transform.rotation = Quaternion.Euler( 0, mainCamera.transform.eulerAngles.y, 0);
+        CheckAnimation(direction);
+    }
+
+    private void CheckAnimation(Vector3 direction)
+    {
+        if (!player.Animator) return;
+        
+        player.Animator.SetBool("Walking", direction != Vector3.zero);
     }
 
     public void ChangeMovementType(MovementType type)

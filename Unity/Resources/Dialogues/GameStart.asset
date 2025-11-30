@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4a27b71fda29184e9fc027482f24ea0, type: 3}
+  m_Name: GameStart
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedDialogue
+  Dialogues:
+  - Language: 0
+    InkFile: {fileID: 4900000, guid: f87514ee5d529144f90849a5e1075446, type: 3}
+  - Language: 1
+    InkFile: {fileID: 4900000, guid: 4be0ae5746eb9e34f8d6b24ee52a0187, type: 3}

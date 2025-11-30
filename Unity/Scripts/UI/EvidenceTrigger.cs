@@ -35,10 +35,13 @@ public class EvidenceTrigger : MonoBehaviour, ISelectHandler, IDeselectHandler
     {
         colorChangeTween.Kill(true);
         
-        Npc.PresentEvidence(BindEvidence);
         UIManager.instance.FadeOutAllUI();
+        UIManager.instance.DestroyAllEvidenceIcons();
         
-        Destroy(gameObject.transform.parent.gameObject);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        
+        Npc.PresentEvidence(BindEvidence);
     }
     
     public void OnSelect(BaseEventData eventData)

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80fa5ea512aa38843bcefc146c8e11a5, type: 3}
+  m_Name: ConversaFuncionarios
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryItem
+  itemName:
+  - language: 0
+    text: "Conversa Entre Funcion\xE1rios"
+  - language: 1
+    text: Employee's Conversation
+  itemDescription:
+  - language: 0
+    text: "Um caminh\xE3o vem toda noite pegar os \u201Cembarques\u201D, e sai toda
+      madrugada, al\xE9m de pagar por eles."
+  - language: 1
+    text: A truck comes every night to pick up the "shipments," and leaves every
+      morning, in addition to paying for them.
+  Icon: {fileID: 0}

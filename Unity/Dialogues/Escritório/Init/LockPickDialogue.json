@@ -1,0 +1,1 @@
+﻿{"inkVersion":21,"root":[["ev","str","^Normal","/str",{"x()":"SetJessicaEmotion","exArgs":1},"pop","/ev","\n","^Ok, agora posso iniciar a investigação.","\n","^Cadê a minha chave?","\n","^Droga, preciso arrombar a porta novamente?","\n","end",["done",{"#f":5,"#n":"g-0"}],null],"done",{"#f":1}],"listDefs":{}}

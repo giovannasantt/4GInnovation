@@ -1,1 +1,1 @@
-﻿{"inkVersion":21,"root":[["^Good afternoon ma'am, how may I help you?","\n","^I'm just passing by, thank you.","\n","end",["done",{"#f":5,"#n":"g-0"}],null],"done",{"#f":1}],"listDefs":{}}
+﻿{"inkVersion":21,"root":[["ev","str","^GenericMale","/str",{"x()":"SetNpcPortrait","exArgs":1},"pop","/ev","\n","^Good afternoon ma'am, how may I help you?","\n","ev","str","^Normal","/str",{"x()":"SetJessicaEmotion","exArgs":1},"pop","/ev","\n","^I'm just passing by, thank you.","\n","end",["done",{"#f":5,"#n":"g-0"}],null],"done",{"#f":1}],"listDefs":{}}

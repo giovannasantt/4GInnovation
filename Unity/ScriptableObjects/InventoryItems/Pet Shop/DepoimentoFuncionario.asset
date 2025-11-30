@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80fa5ea512aa38843bcefc146c8e11a5, type: 3}
+  m_Name: DepoimentoFuncionario
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryItem
+  itemName:
+  - language: 0
+    text: "Depoimento do Funcion\xE1rio"
+  - language: 1
+    text: Employee's Account
+  itemDescription:
+  - language: 0
+    text: O local cresceu rapidamente em menos de 2 anos, algo que exige muito dinheiro
+      investido.
+  - language: 1
+    text: The place grew rapidly in 2 years, something that would require a lot of
+      money invested..
+  Icon: {fileID: 21300000, guid: 9e9fa89aa8c93344f96e81a0f4873079, type: 3}

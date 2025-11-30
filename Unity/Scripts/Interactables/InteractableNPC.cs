@@ -23,7 +23,11 @@ public class InteractableNPC : InteractableBase
             isFirstTimeSpeak = false;
             return;
         }
-        //UIManager.instance.ShowTalkMenu(this); 
+        
+        if (regularDialogue)
+            DialogueManager.instance.StartDialogue(regularDialogue.GetLocalizedDialogue(), this);
+        else 
+            UIManager.instance.ShowEvidenceMenu(this);
     }
 
     public void PresentEvidence(InventoryItem evidence)

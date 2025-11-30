@@ -10,16 +10,16 @@ public class PlayerInvestigatingState : PlayerBaseState
     {
         OnPlayerInvestigating?.Invoke();
         player.PlayerCamera.ChangePerspective(CameraType.FirstPerson);
-        player.PlayerCamera.EnableCameraInput(false);
+        //player.PlayerCamera.EnableCameraInput(false);
         CanMove = false;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
     }
 
     public override void ExitState()
     {
         player.PlayerCamera.ChangePerspective(CameraType.ThirdPerson);
-        player.PlayerCamera.EnableCameraInput(true);
+        //player.PlayerCamera.EnableCameraInput(true);
     }
 
     public override void UpdateState()

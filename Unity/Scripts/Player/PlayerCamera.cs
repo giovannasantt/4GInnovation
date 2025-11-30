@@ -11,6 +11,8 @@ public class PlayerCamera : MonoBehaviour
     
     [FormerlySerializedAs("cameraAtual")]
     public CameraType currentCameraType = CameraType.ThirdPerson;
+
+    [SerializeField] private Transform orientationTransform;
     
     private CinemachineCameraEvents events;
     private void Awake()

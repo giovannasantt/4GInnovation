@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.AI;
 
     [RequireComponent(typeof(NavMeshAgent))]
@@ -17,11 +18,16 @@ using UnityEngine.AI;
         public NavMeshAgent Agent;
         
         [HideInInspector] 
-        public Transform TargetPlayer; 
+        public Transform TargetPlayer;
 
+        public int CurrentIndex;
         private void Awake()
         {
             Agent = GetComponent<NavMeshAgent>();
+        }
+
+        private void Start()
+        {
             TargetPlayer = Player.instance.transform;
         }
     }

@@ -3,6 +3,7 @@ using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[DefaultExecutionOrder(-10)]
 public class CameraTypeSetter : MonoBehaviour
 {
     [SerializeField] private CameraType cameraType;

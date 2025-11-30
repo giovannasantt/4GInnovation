@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3242384d2df041247aef47e0962d858c, type: 3}
+  m_Name: Patrol
+  m_EditorClassIdentifier: ScriptableStateMachine::MicheliniDev.ScriptableStateMachine.State
+  behaviors:
+  - rid: 3176380899514646613
+  oneShotBehaviors:
+  - rid: 3176380862121902164
+  - rid: 3176380862121902175
+  animationEvents: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 3176380862121902164
+      type: {class: AnimatorCrossFade, ns: DefaultNamespace, asm: Assembly-CSharp}
+      data:
+        animationName: Walking
+    - rid: 3176380862121902175
+      type: {class: SetAttackHitbox, ns: MicheliniDev.ScriptableStateMachine, asm: Assembly-CSharp}
+      data:
+        active: 0
+    - rid: 3176380899514646613
+      type: {class: PatrolBehavior, ns: MicheliniDev.ScriptableStateMachine, asm: Assembly-CSharp}
+      data:
+        moveSpeed: 2.5

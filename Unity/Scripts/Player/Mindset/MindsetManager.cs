@@ -11,18 +11,13 @@ public class MindsetManager : MonoBehaviour
     public MindsetFactory Factory;
     public MindsetUIController MindsetUIController => GameplayCore.instance.MindsetUIController;
 
-    private Dictionary<string, MindsetData> allMindsets = new();
+    [SerializeField] private SerializedDictionary<string, MindsetData> allMindsets = new();
     private Dictionary<MindsetData, MindsetObject> activeMindsets = new();
     
     public event Action<MindsetData> OnMindsetUnlocked;
     public static event Action OnMindsetUnlockFail;
     private void Start()
     {
-        foreach (var mindset in Resources.FindObjectsOfTypeAll<MindsetData>())
-        {
-            allMindsets.Add(mindset.name, mindset);
-        }
-        
         foreach (var so in startingMindsets)
         {
             SpawnMindset(so);
@@ -32,9 +27,17 @@ public class MindsetManager : MonoBehaviour
     public void TryConnect(MindsetData a, MindsetData b)
     {
         if (a.ObjectToLink == b)
+        {
             Unlock(a.ObjectFormedUponConnection);
+            Destroy(activeMindsets[a].gameObject);
+            Destroy(activeMindsets[b].gameObject);
+        }
         else if (b.ObjectToLink == a)
+        {
             Unlock(b.ObjectFormedUponConnection);
+            Destroy(activeMindsets[a].gameObject);
+            Destroy(activeMindsets[b].gameObject);
+        }
         else
             OnMindsetUnlockFail?.Invoke();
     }
@@ -44,6 +47,7 @@ public class MindsetManager : MonoBehaviour
         if (!so || activeMindsets.ContainsKey(so)) return;
         SpawnMindset(so);
         OnMindsetUnlocked?.Invoke(so);
+        UIManager.instance.ShowItemGainedUI((IUIDataSettable)so);
     }
 
     public void SpawnMindset(MindsetData data)
@@ -52,11 +56,14 @@ public class MindsetManager : MonoBehaviour
         activeMindsets.Add(data, mobject);
     }
 
-    public void GetMindsetByName(string mindsetName)
+    public bool HasMindset(string mindsetName)
     {
-        var mindset = allMindsets[mindsetName];
-        SpawnMindset(mindset);
-        UIManager.instance.ShowItemGainedUI((IUIDataSettable)mindset);
+        return activeMindsets.ContainsKey(allMindsets[mindsetName]);
+    }
+    
+    public void UnlockMindsetByName(string mindsetName)
+    {
+        Unlock(allMindsets[mindsetName]);
     }
     
     public Dictionary<MindsetData, MindsetObject> GetMindsets() => activeMindsets;

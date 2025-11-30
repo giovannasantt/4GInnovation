@@ -10,6 +10,7 @@ public class Player : Singleton<Player>
     public Health Health;
     public PlayerCamera PlayerCamera;
     public PlayerStateMachine PlayerFSM;
+    public Animator Animator;
 
     public LocalizedDialogue testDialogue;
     
@@ -31,9 +32,6 @@ public class Player : Singleton<Player>
         {
             GameplayCore.instance.ResumeGame();
         }
-        
-        if (Keyboard.current.vKey.isPressed)
-            DialogueManager.instance.StartDialogue(testDialogue.GetLocalizedDialogue());
     }
 
     public void CheckInteraction()

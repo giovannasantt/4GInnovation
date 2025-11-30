@@ -9,21 +9,37 @@ public class InventoryManager : Singleton<InventoryManager>, ISaveable
 {
     private Dictionary<string, InventoryItem> inventoryItemCollection = new();
     [SerializeField] private List<InventoryItem> allItems;
+    [SerializeField] private List<InventoryItem> defaultUnlockedItems;
     
     private List<InventoryItem> inventory = new();
     public override void Awake()
     {
         base.Awake();
         StoreAllItems();
+        foreach (var item in defaultUnlockedItems)
+        {
+            inventory.Add(item);
+        }
     }
 
     private void StoreAllItems()
     {
-        allItems = (Resources.FindObjectsOfTypeAll(typeof(InventoryItem)) as InventoryItem[]).ToList();
         foreach (var item in allItems)
         {
             inventoryItemCollection.Add(item.name, item);
         }
+    }
+
+    public bool HasItems(InventoryItem[] items)
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (!inventory.Contains(items[i]))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void AddItem(InventoryItem item)
@@ -32,7 +48,6 @@ public class InventoryManager : Singleton<InventoryManager>, ISaveable
         {
             inventory.Add(item);
             UIManager.instance.ShowItemGainedUI((IUIDataSettable)item);
-            Debug.Log($"Added {item} to inventory");
         }
     }
 

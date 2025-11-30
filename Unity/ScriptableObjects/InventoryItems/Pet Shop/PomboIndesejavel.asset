@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80fa5ea512aa38843bcefc146c8e11a5, type: 3}
+  m_Name: PomboIndesejavel
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryItem
+  itemName:
+  - language: 0
+    text: "Pombo Indesej\xE1vel"
+  - language: 1
+    text: Uneeded Pigeon
+  itemDescription:
+  - language: 0
+    text: "Uma ficha de um pombo, est\xE1 escrito \u201Cextremamente inteligente,
+      por\xE9m n\xE3o atende os outros requisitos para o embarque\u201D"
+  - language: 1
+    text: "A file for a pigeon, its written \u201Cextremely inteligent, but doesn't
+      meet the other requirements for boarding\u201D"
+  Icon: {fileID: 21300000, guid: 0799bca121cd589439aca9dbcbd2be75, type: 3}

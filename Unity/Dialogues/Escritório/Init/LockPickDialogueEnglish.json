@@ -1,0 +1,1 @@
+﻿{"inkVersion":21,"root":[["ev","str","^Normal","/str",{"x()":"SetJessicaEmotion","exArgs":1},"pop","/ev","\n","^Alright, I can now start the investigation.","\n","^Where are my keys?","\n","^Dammit, I gotta pick that lock again?","\n","end",["done",{"#f":5,"#n":"g-0"}],null],"done",{"#f":1}],"listDefs":{}}

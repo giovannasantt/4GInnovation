@@ -50,6 +50,6 @@ public class NPCMovement : MonoBehaviour
 
     private bool CheckDestinationReached()
     {
-        return Vector3.Distance(transform.position, currentDestination) < 0.05f;
+        return (currentDestination - transform.position).magnitude < 0.1f;
     }
 }

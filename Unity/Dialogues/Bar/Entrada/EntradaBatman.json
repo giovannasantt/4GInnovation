@@ -1,1 +1,1 @@
-﻿{"inkVersion":21,"root":[["^Boa tarde moça, como posso ajudá-la?","\n","^Só estou de passada, obrigada.","\n","end",["done",{"#f":5,"#n":"g-0"}],null],"done",{"#f":1}],"listDefs":{}}
+﻿{"inkVersion":21,"root":[["ev","str","^GenericMale","/str",{"x()":"SetNpcPortrait","exArgs":1},"pop","/ev","\n","^Boa tarde moça, como posso ajudá-la?","\n","ev","str","^Normal","/str",{"x()":"SetJessicaEmotion","exArgs":1},"pop","/ev","\n","^Só estou de passada, obrigada.","\n","end",["done",{"#f":5,"#n":"g-0"}],null],"done",{"#f":1}],"listDefs":{}}

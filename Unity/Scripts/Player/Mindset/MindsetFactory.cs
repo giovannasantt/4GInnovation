@@ -40,6 +40,8 @@ public class MindsetFactory : MonoBehaviour
 
             foreach (Transform objTransform in spawnedObjects)
             {
+                if (!objTransform) continue;
+                
                 if (Vector2.Distance(randomPos, objTransform.position) < minDistance)
                 {
                     tooClose = true;

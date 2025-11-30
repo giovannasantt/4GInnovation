@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da91c48477b4447a8ff7c908fc385bbf, type: 3}
+  m_Name: Pet Shop
+  m_EditorClassIdentifier: Assembly-CSharp::LayeredMusic
+  music: {fileID: 8300000, guid: 68e2e420af41d784f8d80948a7aa85ae, type: 3}
+  atmospheres:
+  - {fileID: 8300000, guid: 19fe843b77004d842913867e02e58568, type: 3}
+  - {fileID: 8300000, guid: abf09f2a0dd3a6f448a5a77857437a0a, type: 3}

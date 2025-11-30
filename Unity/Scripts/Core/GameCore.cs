@@ -1,4 +1,6 @@
+using System;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -18,6 +20,13 @@ public class GameCore : PersistentSingleton<GameCore>
     public GameplayCore GameplayCore;
     public AudioManager AudioManager;
     
+    [SerializeField] private string initScene;
+
+    public void FadeBlackScreen(float finalValue, TweenCallback onComplete = null)
+    {
+        blackScreen.DOFade(finalValue, .5f).OnComplete(onComplete);
+    }
+    
     public void PlayGame()
     {
         blackScreen.DOColor(Color.black, 0.3f).OnComplete(() =>
@@ -25,13 +34,12 @@ public class GameCore : PersistentSingleton<GameCore>
             MainMenuGroup.alpha = 0f;
             MainMenuGroup.gameObject.SetActive(false);
             menuBackground.gameObject.SetActive(false);
-            GameplayCore = Instantiate(Resources.Load<GameObject>("Initilization/GameplayCore")).GetComponent<GameplayCore>();
-            AsyncOperation sceneLoad = SceneManager.LoadSceneAsync("SampleScene");
+            InputManager.ChangeMap("Gameplay");
+            InputManager.instance.EnableInput(true);
+            AsyncOperation sceneLoad = SceneManager.LoadSceneAsync(initScene);
             sceneLoad.completed += operation =>
             {
                 blackScreen.DOFade(0f, 0.3f);
-                InputManager.ChangeMap("Gameplay");
-                InputManager.instance.EnableInput(true);
             };
         });
     }
@@ -76,5 +84,10 @@ public class GameCore : PersistentSingleton<GameCore>
                 };
             }
         );
+    }
+
+    public void SpawnGameplayCore()
+    {
+        GameplayCore = Instantiate(Resources.Load<GameObject>("Initilization/GameplayCore")).GetComponent<GameplayCore>();
     }
 }

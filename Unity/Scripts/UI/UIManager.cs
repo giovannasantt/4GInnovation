@@ -66,8 +66,11 @@ public class UIManager : Singleton<UIManager>
         FadeOutCanvasGroup(PauseMenuButtonsGroup, .5f, true);
         FadeInCanvasGroup(SettingsGroup, .25f, true);
     }
+    
     public void HideSettings()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         FadeInCanvasGroup(PauseMenuButtonsGroup, .5f, true);
         FadeOutCanvasGroup(SettingsGroup, .25f, true);
     }
@@ -82,6 +85,8 @@ public class UIManager : Singleton<UIManager>
     {
         healthBar.gameObject.SetActive(false);
         FadeOutCanvasGroup(passwordGroup, 0.5f);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void ShowPauseUI()
@@ -157,16 +162,6 @@ public class UIManager : Singleton<UIManager>
     {
         CurrentEvidence = evidence;
         evidenceDetailedController.ChangeEvidence(CurrentEvidence);
-        SetAnchoredPosition(CurrentEvidence);
-    }
-    
-    private void SetAnchoredPosition(InventoryItem item)
-    {
-        var rect = evidenceIconGroupMenu.GetComponent<RectTransform>();
-        var evidenceUIS = evidenceIconGroupMenu.GetComponentsInChildren<EvidenceTrigger>().ToDictionary(trigger => trigger.BindEvidence);
-        rect.anchoredPosition = new Vector2(
-            evidenceUIS[item].GetComponent<RectTransform>().anchoredPosition.x, 
-            rect.anchoredPosition.y);
     }
     
     public void ShowTalkMenu(InteractableBase source)
@@ -177,16 +172,29 @@ public class UIManager : Singleton<UIManager>
         showEvidenceButton.onClick.AddListener(() => ShowEvidenceMenu(npc)); 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        Player.instance.PlayerCamera.EnableCameraInput(false);
     }
 
+    public void DestroyAllEvidenceIcons()
+    {
+        for (int i = 0; i < evidenceIconGroupMenu.transform.childCount; i++)
+        {
+            Destroy(evidenceIconGroupMenu.transform.GetChild(i).gameObject);
+        }    
+    }
+    
     public void ShowEvidenceMenu(InteractableNPC npc)
     {
-        FadeInCanvasGroup(evidenceWrapperGroup, 1f);
         FadeOutCanvasGroup(talkMenuGroup, 0.5f);
         
         var evidences = InventoryManager.instance.GetInventory();
         if (evidences.Count == 0) return;
-
+        
+        FadeInCanvasGroup(evidenceWrapperGroup, 1f);
+        Player.instance.PlayerCamera.EnableCameraInput(false);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        
         for (var i = 0; i < evidences.Count; i++)
         {
             var evidenceObj = Instantiate(evidenceIconPrefab, evidenceIconGroupMenu.transform);
@@ -204,8 +212,14 @@ public class UIManager : Singleton<UIManager>
     
     public void FadeOutAllUI()
     {
-        FadeOutCanvasGroup(talkMenuGroup, 1f);   
-        FadeOutCanvasGroup(evidenceWrapperGroup, 1f);    
+        Debug.Log("UI Fading Out");
+        FadeOutCanvasGroup(talkMenuGroup, 1f);    
+        FadeOutCanvasGroup(mindsetBigWrapperGroup, 0.4f);
+        FadeOutCanvasGroup(passwordGroup, 0.4f);
+        FadeOutCanvasGroup(lockPickGroup, 0.4f);
+        healthBar.gameObject.SetActive(false);
+        evidenceWrapperGroup.alpha = 0f;
+        evidenceWrapperGroup.gameObject.SetActive(false);
     }
 
     private void MoveObjectToScreenBound(RectTransform rectTansform, int direction)
@@ -224,6 +238,11 @@ public class UIManager : Singleton<UIManager>
         canvasGroup.alpha = 0f;
         fadeTween = canvasGroup.DOFade(1, duration);
         fadeTween.SetUpdate(unscaledTime);
+    }
+
+    public void SetSoundVolume(Slider slider)
+    {
+        AudioManager.instance.SetSoundVolume(slider);
     }
     
     private void FadeOutCanvasGroup(CanvasGroup canvasGroup, float duration, bool unscaledTime = false)

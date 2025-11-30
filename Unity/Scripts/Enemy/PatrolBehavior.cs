@@ -6,46 +6,61 @@ namespace MicheliniDev.ScriptableStateMachine
     public class PatrolBehavior : StateBehavior
     {
         public float moveSpeed = 3.5f;
-        public float stopDistance = 1.0f;
-
         public override void OnEnter(StateMachineManager manager)
         {
             var controller = manager.GetOrCacheComponent<EnemyController>("EnemyController");
             if (!controller || controller.patrolPoints.Length == 0) return;
 
-            controller.Agent.speed = moveSpeed;
-            controller.Agent.isStopped = false;
-            
             if (!manager.StateData.ContainsKey("PatrolIndex"))
             {
                 manager.StateData["PatrolIndex"] = 0;
             }
 
+            controller.Agent.speed = moveSpeed;
+            controller.Agent.isStopped = false;
+            
             SetDestinationToCurrentIndex(controller, manager);
         }
 
         public override void OnUpdate(StateMachineManager manager)
         {
             var controller = manager.GetOrCacheComponent<EnemyController>("EnemyController");
+            CheckPathStatus(manager, controller);
+        }
+
+        private void CheckPathStatus(StateMachineManager manager, EnemyController controller)
+        {
             if (!controller || !controller.Agent.hasPath) return;
 
-            if (controller.Agent.remainingDistance <= stopDistance)
+            if (controller.Agent.remainingDistance <= controller.Agent.stoppingDistance + 0.1f)
             {
-                int index = (int)manager.StateData["PatrolIndex"];
-                index = (index + 1) % controller.patrolPoints.Length;
-                manager.StateData["PatrolIndex"] = index;
-
-                SetDestinationToCurrentIndex(controller, manager);
+                if (!controller.Agent.pathPending)
+                {
+                    GoToNextPoint(manager, controller);
+                }
             }
+        }
+
+        private void GoToNextPoint(StateMachineManager manager, EnemyController controller)
+        {
+            int index = (int)manager.StateData["PatrolIndex"];
+            index = (index + 1) % controller.patrolPoints.Length;
+            manager.StateData["PatrolIndex"] = index;
+
+            SetDestinationToCurrentIndex(controller, manager);
         }
 
         private void SetDestinationToCurrentIndex(EnemyController controller, StateMachineManager manager)
         {
             int index = (int)manager.StateData["PatrolIndex"];
-            controller.Agent.SetDestination(controller.patrolPoints[index].position);
+            if (controller.patrolPoints[index] != null)
+            {
+                controller.Agent.SetDestination(controller.patrolPoints[index].position);
+            }
         }
 
         public override void OnFixedUpdate(StateMachineManager manager) { }
+        
         public override void OnExit(StateMachineManager manager) 
         {
              var controller = manager.GetOrCacheComponent<EnemyController>("EnemyController");

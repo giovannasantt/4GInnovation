@@ -1,19 +1,29 @@
 EXTERNAL GetItem(item)
+EXTERNAL SetJessicaEmotion(emotion)
+EXTERNAL SetNpcPortrait(npc)
 
+~ SetJessicaEmotion("Normal")
 Boa tarde senhor.
 
+~ SetNpcPortrait("GenericMale")
 Boa tarde.
 
+~ SetJessicaEmotion("Normal")
 O senhor mora na região?
 
+~ SetNpcPortrait("GenericMale")
 Sim.
 
+~ SetJessicaEmotion("Normal")
 Se importaria em responder algumas perguntas? Estou fazendo uma investigação.
 
+~ SetNpcPortrait("GenericMale")
 Prossiga 
 
+~ SetJessicaEmotion("Normal")
 Estou fazendo uma investigação sobre o desaparecimento repentino de animais na região, o senhor viu algo suspeito?
 
+~ SetNpcPortrait("GenericMale")
 …
 
 Moça não lembro de algo necessariamente interessante para a investigação, mas lembro de algo bem específico.
@@ -22,6 +32,7 @@ A algumas semanas, vi um homem de uniforme azul e amarelo levando diversos anima
 
 É isso que tenho a dizer.
 
+~ SetJessicaEmotion("Normal")
 Muito obrigado senhor, essa informação pode ser bem pertinente.
 
 ~ GetItem("TestemunhoHomemBar")

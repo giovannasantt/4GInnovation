@@ -15,7 +15,8 @@ public class PuzzleManager : Singleton<PuzzleManager>
     private float lockPickTimeLimit;
     private float lockPickTimer;
     private Vector2 lastLockPickInput;
-    
+
+    public static event Action<PuzzleType> OnPuzzleEnd;
     public override void Awake()
     {
         base.Awake();
@@ -84,6 +85,8 @@ public class PuzzleManager : Singleton<PuzzleManager>
 
     private void OnFoundPassword()
     {
+        OnPuzzleEnd?.Invoke(PuzzleType.ComputerPassword);
+        OnPuzzleExit();
         UIManager.instance.HidePasswordUI();
     }
     #endregion
@@ -143,6 +146,7 @@ public class PuzzleManager : Singleton<PuzzleManager>
                 }
                 else
                 {
+                    OnPuzzleEnd?.Invoke(PuzzleType.LockPick);
                     OnPuzzleExit();
                     UIManager.instance.HideLockPickUI();
                     lastLockPickInput = Vector2.zero; 

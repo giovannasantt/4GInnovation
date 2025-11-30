@@ -1,28 +1,40 @@
-Good afternoon sir, how are you doing?
+EXTERNAL ShowEvidenceMenu()
+EXTERNAL SetNpcPortrait(npc)
+EXTERNAL SetJessicaEmotion(emotion)
 
-Ah- go-good afternoon ma'am, do you need any help?
+~ SetJessicaEmotion("Happy")
+Good afternoon, sir, how are you?
 
-Indeed, I'm conducting an investigation related to the sudden disappearance of various animals, would you mind answering some questions?
+~ SetNpcPortrait("GenericMale")
+Uh- g-good afternoon, ma'am, do you need help?
 
-No pr-problem, I'll answer all I'm able to.
+~ SetJessicaEmotion("Talking")
+Oh yes, I'm doing an investigation into the sudden disappearance of several animals. Do you mind answering a few questions?
 
-Have you noticed any strange activity this week?
+~ SetNpcPortrait("GenericMale")
+No-No problem, you can ask whatever you need, I'll answer what I know.
 
-One day I went to the bank and the security guard looked at me weirdly.
+~ SetJessicaEmotion("Normal")
+Could you tell me if you reported any suspicious activity this week?
 
-I thought it strange.
+~ SetNpcPortrait("GenericMale")
+I'm not sure if I saw anything suspicious, maybe when I went to the bank and the security guard stared at me too much.
 
-//*Opções de falas da Jéssica*
+I thought the situation was a bit strange.
 
-Don't change the topic. That has nothing to do with the case.
+~ SetJessicaEmotion("Normal")
+Please don't change the subject
 
-Sorry ma'am, sometimes I get lost in thought.
+That doesn't have much to do with the case
 
-My memory is a bit vague, do you have anything more specific to help me remember?
+~ SetNpcPortrait("GenericMale")
+OH, I apologize, ma'am, I didn't mean to make you angry, sometimes I lose my train of thought.
 
-//*Mecânica de apresentação de prova inserida*
+~ SetJessicaEmotion("Normal")
+No problem, but please answer me with something accurate or something you know about what was asked.
 
-//*Jéssica apresenta a pista obtida pelo Homem Misterioso*
+~ SetNpcPortrait("GenericMale")
+My memory is a bit vague, do you have something more specific for me to answer?
 
-A man here told me he witnessed a man in uniform.
-//TO BE CONTINUED?????
+~ ShowEvidenceMenu()
+-> END
