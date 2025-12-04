@@ -13,6 +13,7 @@ public class PlayerNormalState : PlayerBaseState
     {
         fsm.InvestigateStateChecks();
         fsm.BrainstormStateChecks();
+        fsm.PhotoStateChecks();
     }
 
     public override void ExitState()

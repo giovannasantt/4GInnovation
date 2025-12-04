@@ -6,4 +6,5 @@ public enum PlayerStateType
     Dead,
     Investigating,
     Brainstorm,
+    TakingPhoto
 }

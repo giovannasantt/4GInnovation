@@ -80,6 +80,7 @@ public class GameplayCore : PersistentSingleton<GameplayCore>
         AudioManager.instance.MuffleBGM(.5f);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        UIManager.SetVignette(false);
         UIManager.ShowPauseUI();
         InputManager.instance.ChangeMap("UI");
         Time.timeScale = 0f;
@@ -88,11 +89,12 @@ public class GameplayCore : PersistentSingleton<GameplayCore>
     public void ResumeGame()
     {
         IsGamePaused = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
         UIManager.HidePauseUI();
+        UIManager.SetVignette(true);
         InputManager.instance.ChangeMap("Gameplay");
         AudioManager.instance.UnmuffleBGM(.5f);
         Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

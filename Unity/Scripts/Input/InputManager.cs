@@ -22,6 +22,20 @@ public class InputManager : Singleton<InputManager>
         }
     }
 
+    public void EnableAllInput(bool active)
+    {
+        foreach (var map in input.actions.actionMaps)
+            switch (active)
+            {
+                case true:
+                    map.Enable();
+                    break;
+                case false:
+                    map.Disable();
+                    break;
+            }
+    }
+    
     public void EnableInput(bool enabled)
     {
         switch (enabled)

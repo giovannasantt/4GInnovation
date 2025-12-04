@@ -63,6 +63,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
         dialoguePortraitImage.gameObject.SetActive(false);
         npcPortraitImage.gameObject.SetActive(false);
+        UIManager.instance.SetVignette(true);
         
         BindExternalFunctions(source);
 
@@ -165,7 +166,7 @@ public class DialogueManager : Singleton<DialogueManager>
             {
                 InventoryManager.instance.GetItemByName("CachorroIdeal"),
                 InventoryManager.instance.GetItemByName("PomboIndesejavel"),
-                InventoryManager.instance.GetItemByName("FotoEmbarque"),
+                InventoryManager.instance.GetItemByName("ConversaFuncionarios"),
                 InventoryManager.instance.GetItemByName("DepoimentoFuncionario"),
                 InventoryManager.instance.GetItemByName("DepoimentoFuncionario2"),
             };
@@ -245,6 +246,7 @@ public class DialogueManager : Singleton<DialogueManager>
         Cursor.visible = false;
         Player.instance.PlayerCamera.EnableCameraInput(true);
         OnDialogueEnd?.Invoke();
+        UIManager.instance.SetVignette(true);
     }
 
     private IEnumerator TypeText(string text)

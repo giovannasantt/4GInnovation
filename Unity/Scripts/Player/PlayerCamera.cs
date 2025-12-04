@@ -15,6 +15,8 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField] private Transform orientationTransform;
     
     private CinemachineCameraEvents events;
+
+    public static event Action<CameraType> OnCameraChanged;
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -39,6 +41,7 @@ public class PlayerCamera : MonoBehaviour
     public void EnableCameraInput(bool isEnable)
     {
         var axisController = CameraCollection[currentCameraType].GetComponent<CinemachineInputAxisController>();
+        if (!axisController) return;
         foreach (var axis in axisController.Controllers)
         {
             axis.Enabled = isEnable;
@@ -74,5 +77,6 @@ public class PlayerCamera : MonoBehaviour
         CameraCollection[currentCameraType].Priority.Value = 0;
         currentCameraType = cameraType;
         CameraCollection[currentCameraType].Priority.Value = 1;
+        OnCameraChanged?.Invoke(cameraType);
     }
 }

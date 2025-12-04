@@ -18,6 +18,14 @@ public class PlayerStateMachine : StateMachine<PlayerStateType, PlayerBaseState>
             ChangeState(PlayerStateType.Brainstorm);
         }
     }
+    
+    public void PhotoStateChecks()
+    {
+        if (InputManager.instance.GetActionDown("TogglePhoto"))
+        {
+            ChangeState(PlayerStateType.TakingPhoto);
+        }
+    }
 
     public void ChangeToDeathState()
     {

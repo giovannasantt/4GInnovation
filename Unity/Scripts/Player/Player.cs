@@ -37,7 +37,7 @@ public class Player : Singleton<Player>
     public void CheckInteraction()
     {
         if (!Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(Mouse.current.position.x.value, Mouse.current.position.y.value, 0f)), out RaycastHit hit)) return;
-        if (!GameCore.instance.InputManager.GetActionDown("Click")) return;
+        if (!GameCore.instance.InputManager.GetActionDown("MouseClick")) return;
         if (PlayerCamera.currentCameraType != CameraType.FirstPerson) return;
         
         GameObject hitObject = hit.collider.gameObject;

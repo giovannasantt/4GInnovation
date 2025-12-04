@@ -11,6 +11,10 @@ public class GameCore : PersistentSingleton<GameCore>
     [SerializeField] private CanvasGroup MainMenuGroup;
     [SerializeField] private GameObject menuBackground;
     [SerializeField] private Image blackScreen;
+    [SerializeField] private RawImage keybindsImage;
+    [SerializeField] private CanvasGroup keybindsGroup;
+    
+    [SerializeField] private SerializedDictionary<LanguageType, Texture2D> keybindsUIs;
 
     public CanvasGroup SettingsGroup;
     
@@ -35,7 +39,7 @@ public class GameCore : PersistentSingleton<GameCore>
             MainMenuGroup.gameObject.SetActive(false);
             menuBackground.gameObject.SetActive(false);
             InputManager.ChangeMap("Gameplay");
-            InputManager.instance.EnableInput(true);
+            InputManager.EnableAllInput(true);
             AsyncOperation sceneLoad = SceneManager.LoadSceneAsync(initScene);
             sceneLoad.completed += operation =>
             {
@@ -44,6 +48,16 @@ public class GameCore : PersistentSingleton<GameCore>
         });
     }
 
+    public void ShowKeybindsUI(bool active)
+    {
+        keybindsGroup.gameObject.SetActive(active);
+        MainMenuGroup.gameObject.SetActive(!active);
+        if (active)
+        {
+            keybindsImage.texture = keybindsUIs[LocalizationManager.CurrentLanguageType];
+        }
+    }
+    
     public void ShowSettingsMainMenu(bool active)
     {
         SettingsGroup.gameObject.SetActive(active);

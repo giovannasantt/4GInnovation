@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,9 @@ public class UIManager : Singleton<UIManager>
     private Tween moveTween; 
     private Tween fadeTween; 
     
+    [SerializeField] private GameObject crosshair;
+    [SerializeField] private GameObject vignette;
+    
     [SerializeField] private GameObject evidencePrefab;
     [SerializeField] private GameObject evidenceIconPrefab;
     
@@ -39,6 +43,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private GameObject evidenceDetailed;
     
     [SerializeField] private Slider healthBar;
+    [SerializeField] private Image whiteScreen;
 
     private Slider lockPickSlider;
     private Dictionary<Vector2Int, string> directionSprites = new()
@@ -61,6 +66,31 @@ public class UIManager : Singleton<UIManager>
         passwordInputField.onSubmit.AddListener((text) => PuzzleManager.instance.CheckPassword(text));
     }
 
+    private void OnEnable()
+    {
+        PlayerCamera.OnCameraChanged += (cameraType) =>
+        {
+            SetCrossHair(cameraType == CameraType.FirstPerson);
+        };
+    }
+    
+    public void SetVignette(bool active) => vignette.SetActive(active);
+    public void SetCrossHair(bool active) => crosshair.SetActive(active);
+
+    public void FlashScreen()
+    {
+        whiteScreen.gameObject.SetActive(true);
+        vignette.SetActive(false);
+        whiteScreen.DOFade(1f, .2f).OnComplete(() =>
+        {
+            whiteScreen.DOFade(0f, .4f).onComplete = () =>
+            {
+                whiteScreen.gameObject.SetActive(false);
+                vignette.SetActive(false);
+            };
+        });
+    }
+    
     public void ShowSettings() 
     {
         FadeOutCanvasGroup(PauseMenuButtonsGroup, .5f, true);
@@ -79,6 +109,7 @@ public class UIManager : Singleton<UIManager>
     {
         healthBar.gameObject.SetActive(true);
         FadeInCanvasGroup(passwordGroup, 0.5f);
+        vignette.SetActive(false);
     }
     
     public void HidePasswordUI()
@@ -87,6 +118,7 @@ public class UIManager : Singleton<UIManager>
         FadeOutCanvasGroup(passwordGroup, 0.5f);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        vignette.SetActive(true);
     }
 
     public void ShowPauseUI()
@@ -102,6 +134,7 @@ public class UIManager : Singleton<UIManager>
     public void ShowLockPickUI(Vector2Int[] steps, float timer, float maxTimer)
     {
         healthBar.gameObject.SetActive(true);
+        vignette.SetActive(false);
         FadeInCanvasGroup(lockPickGroup, 1f);
         InitializeLockPickTimer(timer, maxTimer);
         var text = lockPickGroup.GetComponentInChildren<TextMeshProUGUI>();
@@ -124,6 +157,7 @@ public class UIManager : Singleton<UIManager>
     public void HideLockPickUI()
     {
         healthBar.gameObject.SetActive(false);
+        vignette.SetActive(true);
         FadeOutCanvasGroup(lockPickGroup, 0.5f); 
     }
     
@@ -133,11 +167,13 @@ public class UIManager : Singleton<UIManager>
         {
             FadeInCanvasGroup(mindsetBigWrapperGroup, 0.4f);
             healthBar.gameObject.SetActive(true);
+            vignette.SetActive(false);
         }
         else
         {
             FadeOutCanvasGroup(mindsetBigWrapperGroup, 0.4f);
             healthBar.gameObject.SetActive(false);
+            vignette.SetActive(true);
         }
     }
 
@@ -191,6 +227,7 @@ public class UIManager : Singleton<UIManager>
         if (evidences.Count == 0) return;
         
         FadeInCanvasGroup(evidenceWrapperGroup, 1f);
+        vignette.SetActive(false);
         Player.instance.PlayerCamera.EnableCameraInput(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -220,6 +257,8 @@ public class UIManager : Singleton<UIManager>
         healthBar.gameObject.SetActive(false);
         evidenceWrapperGroup.alpha = 0f;
         evidenceWrapperGroup.gameObject.SetActive(false);
+        SetCrossHair(false);
+        vignette.SetActive(false);
     }
 
     private void MoveObjectToScreenBound(RectTransform rectTansform, int direction)

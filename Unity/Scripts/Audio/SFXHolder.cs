@@ -7,6 +7,8 @@ public class SFXHolder : MonoBehaviour
     private AudioSource source;
     public float minPitch = 1f;
     public float maxPitch = 1f;
+
+    public bool playOnEnable = true;
     private void Awake()
     {
         source = GetComponent<AudioSource>();
@@ -18,6 +20,12 @@ public class SFXHolder : MonoBehaviour
     }
 
     private void OnEnable()
+    {
+        if (playOnEnable)
+            PlaySound();      
+    }
+
+    public void PlaySound()
     {
         AudioManager.instance.PlayRandomSFX(sfxs, ref source, minPitch, maxPitch);
     }
