@@ -1,0 +1,9 @@
+<svg width="32" height="32" viewBox="0 0 32 32" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="foldGrad" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#dccfb8" />
+    </linearGradient>
+  </defs>
+  <path d="M0 0 L32 0 L32 32 Z" fill="url(#foldGrad)" />
+</svg>

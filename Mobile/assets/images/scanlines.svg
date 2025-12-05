@@ -1,0 +1,8 @@
+<svg width="4" height="4" viewBox="0 0 4 4" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="scanlines" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+       <rect y="2" width="4" height="2" fill="#000000" fill-opacity="0.03"/>
+    </pattern>
+  </defs>
+  <rect width="4" height="4" fill="url(#scanlines)"/>
+</svg>

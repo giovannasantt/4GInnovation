@@ -1,0 +1,10 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="texOverlayGrad" cx="0.5" cy="0.5" r="0.6">
+      <stop offset="0.0" stop-color="#FFF8E6" stop-opacity="0.12"/>
+      <stop offset="0.3" stop-color="#807C73" stop-opacity="0.06"/>
+      <stop offset="1.0" stop-color="#000000" stop-opacity="0.0"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#texOverlayGrad)"/>
+</svg>

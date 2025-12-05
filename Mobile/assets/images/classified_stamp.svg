@@ -1,0 +1,25 @@
+<svg width="140" height="50" viewBox="0 0 140 50" xmlns="http://www.w3.org/2000/svg">
+  <g opacity="0.5">
+    <g transform="rotate(12 70 25)">
+      <rect x="2" y="8" width="136" height="34" rx="4"
+            stroke="black" stroke-opacity="0.4" stroke-width="1" fill="none"/>
+      <path d="
+        M 24 22 L 20 22 L 18 24 L 18 28 L 20 30 L 24 30
+        M 28 20 L 28 30 L 33 30
+        M 36 30 L 39 20 L 42 30 M 37 26 L 41 26
+        M 51 21 L 46 21 L 45 22 L 45 24 L 46 25 L 50 25 L 51 26 L 51 28 L 50 29 L 45 29
+        M 60 21 L 55 21 L 54 22 L 54 24 L 55 25 L 59 25 L 60 26 L 60 28 L 59 29 L 54 29
+        M 66 20 L 66 30 M 64 20 L 68 20 M 64 30 L 68 30
+        M 73 30 L 73 20 L 78 20 M 73 25 L 77 25
+        M 84 20 L 84 30 M 82 20 L 86 20 M 82 30 L 86 30
+        M 96 22 L 92 22 L 90 24 L 90 28 L 92 30 L 96 30
+        M 99 30 L 102 20 L 105 30 M 100 26 L 104 26
+        M 109 20 L 112 20 L 114 22 L 114 28 L 112 30 L 109 30 L 109 20
+        M 119 20 L 121 20 L 123 22 L 123 28 L 121 30 L 119 30 L 117 28 L 117 22 L 119 20
+      "
+      stroke="black" stroke-opacity="0.6" stroke-width="1.5"
+      stroke-linecap="round" stroke-linejoin="round"
+      fill="none"/>
+    </g>
+  </g>
+</svg>
